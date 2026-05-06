@@ -1,0 +1,16 @@
+@baseUrl = http://localhost:8080
+
+### Тест 1: Успешная авторизация (admin/admin)
+GET {{baseUrl}}/authorize?user=admin&password=admin
+
+### Тест 2: Успешная авторизация (user/user)
+GET {{baseUrl}}/authorize?user=user&password=user
+
+### Тест 3: Пустой логин (ошибка 400)
+GET {{baseUrl}}/authorize?user=&password=admin
+
+### Тест 4: Неверный пользователь (ошибка 401)
+GET {{baseUrl}}/authorize?user=unknown&password=unknown
+
+### Тест 5: Пустой пароль (ошибка 400)
+GET {{baseUrl}}/authorize?user=admin&password=
